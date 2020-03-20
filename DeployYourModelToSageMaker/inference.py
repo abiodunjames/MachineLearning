@@ -48,7 +48,7 @@ def input_fn(request_body, content_type='application/json'):
         ])
 
         return image_transform(image_data)
-    raise Exception('Requested unsupported ContentType in content_type: ' + content_type)
+    raise Exception(f'Requested unsupported ContentType in content_type: {content_type}')
 
 
 def output_fn(prediction_output, accept='application/json'):
@@ -66,7 +66,7 @@ def output_fn(prediction_output, accept='application/json'):
 
     if accept == 'application/json':
         return json.dumps(result), accept
-    raise Exception('Requested unsupported ContentType in Accept: ' + accept)
+    raise Exception(f'Requested unsupported ContentType in Accept: {accept}')
 
 
 def predict_fn(input_data, model):
